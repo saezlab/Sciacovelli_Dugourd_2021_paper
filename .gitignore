@@ -1,4 +1,5 @@
-*DS_Store
-*GDC_KIRK_raw_20191024.csv
+.DS_Store
+**/.DS_Store
+Data/GDC_KIRK/GDC_KIRK_raw_20191024.csv
 .Rhistory
 .Rproj.user
