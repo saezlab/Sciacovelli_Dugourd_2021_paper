@@ -1,0 +1,19 @@
+Case ID,File ID,File Name,Data Category,Data Type,Project ID,Sample ID,Sample Type,tumor_stage
+TCGA-AK-3436,d52d01f5-aeb1-49a8-aa99-49b5b76e6c2f,cdab322b-66c0-4c06-970c-5042afc1a706.htseq.counts,Transcriptome Profiling,Gene Expression Quantification,TCGA-KIRC,TCGA-AK-3436-01A,Primary Tumor,stage iv
+TCGA-B0-4713,c6c536dd-6f85-42a9-b900-ef765ca0a3e7,b9ab3494-7186-4df1-9aac-75777ce3a8ed.htseq.counts,Transcriptome Profiling,Gene Expression Quantification,TCGA-KIRC,TCGA-B0-4713-01A,Primary Tumor,stage iii
+TCGA-B0-4817,67315696-e123-49da-a378-12a5544ae703,8f16590f-2437-4c68-a2bd-8406b08198ef.htseq.counts,Transcriptome Profiling,Gene Expression Quantification,TCGA-KIRC,TCGA-B0-4817-01A,Primary Tumor,stage iii
+TCGA-B0-4827,e5571547-2d4c-4f50-b6af-efc2dd0c944b,064910fa-3648-4324-b958-47a3b89fe4b5.htseq.counts,Transcriptome Profiling,Gene Expression Quantification,TCGA-KIRC,TCGA-B0-4827-01A,Primary Tumor,stage iii
+TCGA-B0-4844,f1af2d03-7384-4698-8674-5b63f0339e7b,cc36843b-e6af-4a45-a525-0dd34dd115fb.htseq.counts,Transcriptome Profiling,Gene Expression Quantification,TCGA-KIRC,TCGA-B0-4844-01A,Primary Tumor,stage iv
+TCGA-B0-5085,5e4711a7-9e19-40c8-81bf-9b41e1bc56ad,ef6b65f8-e67d-4584-9042-8ae5dbdc845a.htseq.counts,Transcriptome Profiling,Gene Expression Quantification,TCGA-KIRC,TCGA-B0-5085-01A,Primary Tumor,stage iii
+TCGA-BP-4166,2e71d4d7-bede-49b2-9ed4-4e4d184fa688,8dec6cce-17fe-4d01-8ad3-f8baa1156356.htseq.counts,Transcriptome Profiling,Gene Expression Quantification,TCGA-KIRC,TCGA-BP-4166-01A,Primary Tumor,stage iii
+TCGA-BP-4761,9826cbe3-3fb6-4a6d-828d-bacceadc51ed,e7f07f98-8dbf-4884-8d45-318671c15c98.htseq.counts,Transcriptome Profiling,Gene Expression Quantification,TCGA-KIRC,TCGA-BP-4761-01A,Primary Tumor,stage iii
+TCGA-BP-5178,19c998c3-e83a-42dc-889b-bd16393b6adc,576dfeab-3d42-4c3d-be8f-10279e800cfb.htseq.counts,Transcriptome Profiling,Gene Expression Quantification,TCGA-KIRC,TCGA-BP-5178-01A,Primary Tumor,stage iv
+TCGA-CJ-4870,25e26eb5-ef83-458e-8de5-afdb8dfdb3d4,e1c82878-ac01-45bd-83b0-4bc606039670.htseq.counts,Transcriptome Profiling,Gene Expression Quantification,TCGA-KIRC,TCGA-CJ-4870-01A,Primary Tumor,stage iii
+TCGA-CJ-4884,94be8a3a-0b7b-4827-997d-8d965e675a5e,7939e5e9-8920-4db9-9ab1-a34432830f52.htseq.counts,Transcriptome Profiling,Gene Expression Quantification,TCGA-KIRC,TCGA-CJ-4884-01A,Primary Tumor,stage iii
+TCGA-CJ-5679,69444918-fd2d-46d7-9f41-ab01f1fc5920,61c7c0b0-d730-4d67-b1b7-c267124d4e1b.htseq.counts,Transcriptome Profiling,Gene Expression Quantification,TCGA-KIRC,TCGA-CJ-5679-01A,Primary Tumor,stage iii
+TCGA-CJ-5681,c3641a4d-1af6-474a-9313-4d1877b69bd4,956e52f2-475c-4aa3-9e99-0912e4612314.htseq.counts,Transcriptome Profiling,Gene Expression Quantification,TCGA-KIRC,TCGA-CJ-5681-01A,Primary Tumor,stage iv
+TCGA-CW-5585,14f53cea-e25d-45b0-b313-b5fe731ece9d,e9d0a954-7b2d-42c1-a2e1-799a289cc5af.htseq.counts,Transcriptome Profiling,Gene Expression Quantification,TCGA-KIRC,TCGA-CW-5585-01A,Primary Tumor,stage iv
+TCGA-CW-5591,51bee5b8-361e-4d6c-9f06-74c9a18cc2e5,11ad89e5-bfa7-42bc-8dd4-13a5f745df1a.htseq.counts,Transcriptome Profiling,Gene Expression Quantification,TCGA-KIRC,TCGA-CW-5591-01A,Primary Tumor,stage iv
+TCGA-CZ-5467,f49604b6-3f1e-4773-bc2f-f226f6f14d0c,d3823e63-64df-4a9a-920b-3323d3119db0.htseq.counts,Transcriptome Profiling,Gene Expression Quantification,TCGA-KIRC,TCGA-CZ-5467-01A,Primary Tumor,stage iii
+TCGA-CZ-5468,5ab8d619-fd3f-4470-83d7-d18674e1dab5,6f141f5b-bf1e-4b4b-8a9e-b4edb0d5cbd9.htseq.counts,Transcriptome Profiling,Gene Expression Quantification,TCGA-KIRC,TCGA-CZ-5468-01A,Primary Tumor,stage iv
+TCGA-G6-A8L6,38126a07-6469-40e2-8833-41d90d3067b1,a6786f3b-caf0-4e1f-9711-1479b1ae0fdf.htseq.counts,Transcriptome Profiling,Gene Expression Quantification,TCGA-KIRC,TCGA-G6-A8L6-01A,Primary Tumor,stage iv

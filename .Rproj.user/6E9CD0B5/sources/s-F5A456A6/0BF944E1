@@ -1,0 +1,26 @@
+{
+    "id": "0BF944E1",
+    "path": "~/Dropbox/Sciaccovelli_Dugourd_2021_paper/scripts/metabolomic/BCATi.R",
+    "project_path": "scripts/metabolomic/BCATi.R",
+    "type": "r_source",
+    "hash": "2721271442",
+    "contents": "",
+    "dirty": false,
+    "created": 1628693809381.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "155,0",
+        "scrollLine": "148"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1628695214,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1628695214266,
+    "read_only": false,
+    "read_only_alternatives": []
+}
