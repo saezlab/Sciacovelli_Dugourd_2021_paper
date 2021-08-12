@@ -1,6 +1,6 @@
 # Sciacovelli_Dugourd_2021_paper
 
-code of theanalysis for the Sciacovelli_Dugourd_2021 manuscript.
+Code of the analysis for the Sciacovelli_Dugourd_2021 manuscript.
 
 Scripts are located in the scripts folder. 
 
