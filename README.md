@@ -9,33 +9,33 @@ In order to run them, simply open Sciacovelli_Dugourd_2021_paper.Rproj in R stud
 You will need to instal the following packages:
 
 From bioconductor:
-library(GSEABase)
-library(biomaRt)
-library(clusterProfiler)
-library(dorothea)
-library(fgsea)
-library(limma)
-library(viper)
-library(vsn)
+GSEABase
+biomaRt
+clusterProfiler
+dorothea
+fgsea
+limma
+viper
+vsn
 
 From Cran:
-library(cowplot)
-library(dplyr)
-library(ggfortify)
-library(ggplot2)
-library(ggrepel)
-library(grid)
-library(gridExtra)
-library(igraph)
-library(pheatmap)
-library(readr)
-library(readxl)
-library(reshape2)
-library(visNetwork)
+cowplot
+dplyr
+ggfortify
+ggplot2
+ggrepel
+grid
+gridExtra
+igraph
+pheatmap
+readr
+readxl
+reshape2
+visNetwork
 
 From github:
-library(decoupleR) (https://github.com/saezlab/decoupleR)
-library(ocean) (https://github.com/saezlab/ocean)
+decoupleR (https://github.com/saezlab/decoupleR)
+ocean (https://github.com/saezlab/ocean)
 
 Enjoy !
 
