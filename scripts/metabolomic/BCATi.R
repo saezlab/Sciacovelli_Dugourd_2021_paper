@@ -161,7 +161,7 @@ plot_reaction_network(sub_network_nocofact, t_table, mean_NES_df, column_index =
 plot_reaction_network(sub_network_nocofact, t_table, mean_NES_df, column_index = 3, vis.height = 2000) %>% 
   visSave(file = "results/networks/BCATi/M1A_BCATi_full_NES_p8.html")
 plot_reaction_network(sub_network_nocofact, t_table, mean_NES_df, column_index = 4, vis.height = 2000) %>% 
-  visSave(file = "results/networks/BCATi/M1A_BCATi_full_NES_p8.html")
+  visSave(file = "results/networks/BCATi/M2A_BCATi_full_NES_p8.html")
 
 ignet <- graph_from_data_frame(sub_network_nocofact$reaction_network)
 shortest_paths(ignet, from = "BCAT1",to = "cpd:C00037_m",)

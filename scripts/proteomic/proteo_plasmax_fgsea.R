@@ -4,6 +4,7 @@ gc()
 
 library(readr)
 library(fgsea)
+library(GSEABase)
 
 runfgsea_ttop <- function(ttop, 
                           pathways,

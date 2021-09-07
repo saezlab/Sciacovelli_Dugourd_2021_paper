@@ -211,6 +211,14 @@ plots <- plotMetaboliteContribution(enzyme = 'BCAT1>780', stat_df = translated_r
 plot(plots$scatter)
 # plot(plots$cumsumPlot)
 
+##Visualise results for single enzmes
+plots <- plotMetaboliteContribution(enzyme = 'ASS1', stat_df = translated_results$t_table, 
+                                    metabolite_sets = translated_regulons_df, 
+                                    contrast_index = 4, stat_name = 'Abundance Down <==> Up (t-value)', 
+                                    scaling_factor = 1, nLabels =  30)
+
+plot(plots$scatter)
+
 ig_net <- graph_from_data_frame(sub_network_nocofact$reaction_network)
 
 shortest_paths(ig_net, from = "BCAT1>780_gluakg", to = "cpd:methylmalonylcarnitine-C3_m", mode = "out")
