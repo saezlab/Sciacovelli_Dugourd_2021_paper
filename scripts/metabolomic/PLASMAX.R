@@ -124,14 +124,9 @@ t_table <- t_table_metactivity_input_formater(metabolomic_t_table = t_table,
 
 write_csv(t_table, file = "results/metabolomic/plasmax/t_table.csv")
 
-##Prepare the metabolic enzyme sets
-penalty_min <- 8 #minimum 1 and integer
-penalty_max <- 8 #maximum 9 and integer
-
 ######## SUBNETWORKS
 
 expressed_genes <- as.data.frame(read_csv("data/metabolomic/expressed_genes_plasmax.csv"))
-
 # View(unique(recon2_redhuman$pathway))
 
 all_pathways <- unique(recon2_redhuman$pathway)
@@ -142,13 +137,14 @@ sub_network <- translate_complexes(sub_network)
 sub_network_nocofact <- remove_cofactors(sub_network)
 
 non_expressed_genes <- expressed_genes[rowSums(expressed_genes[,c(1,2,3)]) == 0,c(4,5)] #HK2 and O
-non_expressed_genes <- c(non_expressed_genes$hgnc_symbol,non_expressed_genes$entrezgene_id)
+non_expressed_genes <- c(non_expressed_genes$hgnc_symbol,non_expressed_genes$entrezgene_id,"HMR3832") #Arginine to citruline should be catalised by nos, not expressed here
 
 tokeep <- list()
 for(i in 1:length(sub_network_nocofact$reaction_network[,1]))
 {
   elements <- gsub("[><].*","",sub_network_nocofact$reaction_network[i,])
   elements <- elements[!grepl("cpd:",elements)]
+  elements <- gsub("^HMR_","HMR",elements)
   elements <- unlist(strsplit(elements, "_"))
   tokeep[[i]] <- sum(elements %in% non_expressed_genes) == 0
 }
@@ -165,6 +161,9 @@ enzymes <- enzymes[!grepl("_[clxmenr]$",enzymes)]
 sub_forest <- forestMaker(enzymes, sub_network_nocofact$reaction_network, branch_length = c(1,1), remove_reverse = T)
 
 ###################
+##Prepare the metabolic enzyme sets
+penalty_min <- 6 #minimum 1 and integer
+penalty_max <- 8 #maximum 9 and integer
 
 reaction_set_list <- prepare_metabolite_set(penalty_range = penalty_min:penalty_max,   
                                             forest = sub_forest,
@@ -203,25 +202,25 @@ translated_regulons_df$targets <- gsub(".*___","",translated_regulons_df$ID)
 translated_regulons_df <- translated_regulons_df[,c(3,4,2)]
 
 ##Visualise results for single enzmes
-plots <- plotMetaboliteContribution(enzyme = 'BCAT1>780', stat_df = translated_results$t_table, 
+plots <- plotMetaboliteContribution(enzyme = 'ASNS_glugln', stat_df = translated_results$t_table, 
                                     metabolite_sets = translated_regulons_df, 
-                                    contrast_index = 4, stat_name = 'Abundance Down <==> Up (t-value)', 
+                                    contrast_index = 1, stat_name = 'Abundance Down <==> Up (t-value)', 
                                     scaling_factor = 1, nLabels =  30)
 
 plot(plots$scatter)
 # plot(plots$cumsumPlot)
 
 ##Visualise results for single enzmes
-plots <- plotMetaboliteContribution(enzyme = 'ASS1', stat_df = translated_results$t_table, 
+plots <- plotMetaboliteContribution(enzyme = 'GRHPR', stat_df = translated_results$t_table, 
                                     metabolite_sets = translated_regulons_df, 
-                                    contrast_index = 4, stat_name = 'Abundance Down <==> Up (t-value)', 
+                                    contrast_index = 1, stat_name = 'Abundance Down <==> Up (t-value)', 
                                     scaling_factor = 1, nLabels =  30)
 
 plot(plots$scatter)
 
 ig_net <- graph_from_data_frame(sub_network_nocofact$reaction_network)
 
-shortest_paths(ig_net, from = "BCAT1>780_gluakg", to = "cpd:methylmalonylcarnitine-C3_m", mode = "out")
+shortest_paths(ig_net, from = "ADSL>2", to = "cpd:C00152_c", mode = "out")
 shortest_paths(ig_net, from = "BCAT1>780", to = "cpd:methylmalonylcarnitine-C3_m", mode = "out")
 
 shortest_paths(ig_net, from = "BCAT1>780_gluakg", to = "cpd:C03406_c", mode = "out")

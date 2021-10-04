@@ -47,7 +47,8 @@ row.names(batches)[length(batches[,1])] <- "kmv"
 batches <- as.data.frame(rbind(batches,batches["kmv+kic",]))
 row.names(batches)[length(batches[,1])] <- "kic"
 batches <- batches[-which(row.names(batches) == "kmv+kic"),]
-
+batches <- as.data.frame(rbind(batches,batches["leucine",]))
+row.names(batches)[length(batches[,1])] <- "isoleucine"
 # magicPlotMaker(batches, "~/Documents/Marco/Marco/results/metabolomic/labelling/l1/log2",targets)
 
 unique(targets$condition)
@@ -88,7 +89,6 @@ sub_network <- model_to_pathway_sif(pathway_to_keep = all_pathways$X1)
 sub_network <- translate_complexes(sub_network)
 
 sub_network_nocofact <- remove_cofactors(sub_network)
-
 
 non_expressed_genes <- expressed_genes[rowSums(expressed_genes[,c(1,2,3)]) == 0,c(4,5)] #HK2 and O
 non_expressed_genes <- c(non_expressed_genes$hgnc_symbol,non_expressed_genes$entrezgene_id)
@@ -143,15 +143,33 @@ mean_NES_df <- metactivity_res$NES
 ##translate the metabolic ids back to names
 translated_results <- translate_results(regulons_df = regulons_df, t_table = t_table, mapping_table = mapping_table)
 
+translated_regulons_df <- translated_results$regulons_df
+translated_regulons_df$ID <- paste(translated_regulons_df$set, gsub("_[a-z]$","",translated_regulons_df$targets), sep = "___")
+translated_regulons_df <- translated_regulons_df[,-c(1,2)]
+
+translated_regulons_df <- translated_regulons_df %>% group_by(ID) %>% summarise_each(funs(mean(., na.rm = TRUE)))
+translated_regulons_df <- as.data.frame(translated_regulons_df)
+
+translated_regulons_df$set <- gsub("___.*","",translated_regulons_df$ID)
+translated_regulons_df$targets <- gsub(".*___","",translated_regulons_df$ID)
+translated_regulons_df <- translated_regulons_df[,c(3,4,2)]
+
 ##Visualise results for single enzmes
-plots <- plotMetaboliteContribution(enzyme = 'BCAT1>780', 
+plots <- plotMetaboliteContribution(enzyme = 'BCAT1', 
                                     stat_df = translated_results$t_table, 
-                                    metabolite_sets = translated_results$regulons_df, 
-                                    contrast_index = 2, stat_name = 't', scaling_factor = 3, nLabels =  20)
+                                    metabolite_sets = translated_regulons_df, 
+                                    contrast_index = 3, stat_name = 't', scaling_factor = 3, nLabels =  20)
 
 plot(plots$scatter)
 plot(plots$cumsumPlot)
 
+##Visualise results for single enzmes
+plots <- plotMetaboliteContribution(enzyme = 'PYCR1>1201', 
+                                    stat_df = translated_results$t_table, 
+                                    metabolite_sets = translated_regulons_df, 
+                                    contrast_index = 3, stat_name = 't', scaling_factor = 3, nLabels =  20)
+
+plot(plots$scatter)
 ##Visualise results at pathway level pathways
 
 plot_reaction_network(sub_network_nocofact, t_table, mean_NES_df, column_index = 1, vis.height = 2000) %>% 

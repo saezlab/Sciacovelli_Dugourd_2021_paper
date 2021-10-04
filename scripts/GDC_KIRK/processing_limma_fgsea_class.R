@@ -15,7 +15,7 @@ library(ggrepel)
 
 source("scripts/support_functions.R")
 
-df <- as.data.frame(read_csv("data/GDC_KIRK/GDC_KIRK_raw_20191024.csv")) ##Assembled from download https://portal.gdc.cancer.gov/projects/TCGA-KIRC
+df <- as.data.frame(read_csv("data/GDC_KIRK/GDC_KIRK_raw_20191024.csv")) ##Assembled from download https://portal.gdc.cancer.gov/projects/TCGA-KIRC // clinical can be downloaded after adding files to cart
 row.names(df) <- df$gene
 df <- df[,-which(names(df) == "gene")]
 

@@ -921,3 +921,54 @@ import_gmt <- function(gmtfile, fast = T)
     return(gene_to_term[complete.cases(gene_to_term),])
   }
 }
+
+#' ttop_list_to_t_table
+#'
+#' ipsum...
+#'
+#' @param ttop_list  ipsum...
+#' @return ipsum...
+#' @export
+ttop_list_to_t_table <- function(ttop_list)
+{
+  if(length(ttop_list) > 1)
+  {
+    t_table <- merge(ttop_list[[1]][,c(1,4)], ttop_list[[2]][,c(1,4)], by = "ID")
+    if(length(ttop_list) > 2)
+    {
+      for(i in 3:length(ttop_list))
+      {
+        t_table <- merge(t_table, ttop_list[[i]][,c(1,4)], by = "ID")
+      }
+    }
+  }
+  else
+  {
+    t_table <- ttop_list[[1]][,c(1,4)]
+  }
+  names(t_table) <- c("ID",names(ttop_list))
+  return(t_table)
+}
+
+#' limma_res_to_ttop_list
+#'
+#' ipsum...
+#'
+#' @param limma_res  ipsum...
+#' @param comp_names  ipsum...
+#' @param number  ipsum...
+#' @param adjust.method  ipsum...
+#' @return ipsum...
+#' @export
+limma_res_to_ttop_list <- function(limma_res, comp_names, number, adjust.method = "fdr")
+{
+  ttop_list <- list()
+  n_comp <- length(limma_res[[2]][1,])
+  for(i in 1:n_comp)
+  {
+    ttop_list[[i]] <- ttopFormatter(topTable(limma_res[[1]], coef = i, number = number, adjust.method = adjust.method))
+    ttop_list[[i]] <- ttop_list[[i]][complete.cases(ttop_list[[i]]),]
+  }
+  names(ttop_list) <- comp_names
+  return(ttop_list)
+}
