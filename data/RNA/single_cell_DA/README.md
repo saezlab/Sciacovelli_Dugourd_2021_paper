@@ -1,0 +1,1 @@
+These files were generated though the analysis of https://www.science.org/doi/10.1126/science.aat1699 data through the scripts available at: https://github.com/saezlab/marco_kidney_singlecell/blob/main/scripts/CCRCC_ASS1_final.ipynb

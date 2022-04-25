@@ -103,6 +103,12 @@ t_table <- eset
 names(t_table) <- c("ID",'OvHK2','786vHK2','786vO')
 write_csv(t_table, file = "results/RNA/t_table.csv")
 
+fc_table <- merge(ttop_OvHK2[,c('ID','logFC')], ttop_786vHK2[,c('ID','logFC')], by = 'ID')
+fc_table <- merge(fc_table, ttop_786vO[,c('ID','logFC')], by = 'ID')
+row.names(fc_table) <- eset$fc_table
+names(fc_table) <- c("ID",'OvHK2','786vHK2','786vO')
+write_csv(fc_table, file = "results/RNA/fc_table.csv")
+
 eset <- eset[eset$ID != "HIF1A",] #This is a genetic deletion, shouldn't be used for TF activity estimation
 
 eset <- eset[,-1]

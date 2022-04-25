@@ -1,3 +1,7 @@
+rm(list = ls(all.names = TRUE))
+gc()
+.rs.restartR() ##Only if Rstudio
+
 library(ocean)
 library(readxl)
 library(reshape2)
@@ -213,7 +217,7 @@ plot(plots$scatter)
 # plot(plots$cumsumPlot)
 
 ##Visualise results for single enzmes
-plots <- plotMetaboliteContribution(enzyme = 'ASS1', stat_df = translated_results$t_table, 
+plots <- plotMetaboliteContribution(enzyme = 'ACO1>1218', stat_df = translated_results$t_table, 
                                     metabolite_sets = translated_regulons_df, 
                                     contrast_index = 4, stat_name = 'Abundance Down <==> Up (t-value)', 
                                     scaling_factor = 1, nLabels =  30)
