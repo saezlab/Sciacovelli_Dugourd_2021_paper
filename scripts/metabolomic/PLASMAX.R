@@ -35,13 +35,27 @@ targets$condition <- gsub("_.*","",targets$sample)
 
 batches <- batches[rowSums(batches) != 0,]
 batches[batches == 0] <- NA 
-batches <- as.data.frame(log2(batches))
 
+
+batches_long <- batches
+batches_long$metab <- row.names(batches_long)
+batches_long <- melt(batches_long)
+
+violins <- ggplot(batches_long, aes(x = 1:8640, y = log2(value), group = variable, fill = variable)) + 
+  geom_violin() +
+  theme_minimal()
+
+violins
+
+ggsave(filename = "figures/metabolomic_raw_violins.pdf", plot = violins)
+
+batches <- as.data.frame(log2(batches))
 batches <- as.data.frame(rbind(batches,batches["methylmalonylcarnitine C3-DC-M/succinylcarnitine C4-DC",]))
 row.names(batches)[length(batches[,1])] <- "methylmalonylcarnitine C3-DC-M"
 # batches <- as.data.frame(rbind(batches,batches["methylmalonylcarnitine C3-DC-M/succinylcarnitine C4-DC",]))
 # row.names(batches)[length(batches[,1])] <- "succinylcarnitine C4-DC"
 batches <- batches[-which(row.names(batches) == "methylmalonylcarnitine C3-DC-M/succinylcarnitine C4-DC"),]
+
 
 sub_batches <- batches[row.names(batches) %in% c("leucine",
                                          "isoleucine",
@@ -55,9 +69,17 @@ sub_batches <- 2^sub_batches
 to_plot <- melt(batches)
 to_plot$condition <- gsub("_.*","",to_plot$variable)
 
-ggplot(to_plot, aes(x = variable, y = value, group = variable, fill = condition)) + geom_violin()
+ggplot(to_plot, aes(x = variable, y = value, group = variable, fill = condition)) + 
+  geom_violin() +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 315, vjust = 0.5, hjust=0))
 
-plot(nicePCA(batches, targets))
+plot(nicePCA(df = batches, targets = targets))
+
+batches_hm <- batches
+batches_hm[is.na(batches_hm)] <- 0
+pheatmap::pheatmap(cor(batches_hm), cluster_cols = T, cluster_rows = T, show_rownames = F)
+
 
 unique(targets$condition)
 

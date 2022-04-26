@@ -34,6 +34,24 @@ targets$condition <- gsub("_.*","",targets$condition)
 plots <- magicPlotMakerLight(proteomic_plasmax, targets)
 
 plot(plots[[2]])
+plot(plots[[1]])
+
+proteomic_plasmax_long <- melt(proteomic_plasmax)
+proteomic_plasmax_long$variable <- gsub("LFQ intensity ","",proteomic_plasmax_long$variable)
+proteomic_plasmax_long$value <- 2^proteomic_plasmax_long$value
+
+violins <- ggplot(proteomic_plasmax_long, aes(x = 1:123960, y = log2(value), group = variable, fill = variable)) + 
+  geom_violin() +
+  theme_minimal()
+
+violins
+
+ggsave(filename = "figures/proteomic_raw_violins.pdf", plot = violins)
+
+to_hm <- proteomic_plasmax
+names(to_hm) <- gsub("LFQ intensity ","",names(to_hm))
+pheatmap::pheatmap(cor(to_hm[,-1]), cluster_cols = T, cluster_rows = T, show_rownames = F)
+
 
 #we want to compare the KO condition with the WT condition so we build a
 #comparison list

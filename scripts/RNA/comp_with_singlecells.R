@@ -7,8 +7,8 @@ source("scripts/support_functions.R")
 
 fc_table <- as.data.frame(read_csv("results/RNA/fc_table.csv"))
 
-DA_tumorVsHealthy <- as.data.frame(read_csv("~/Dropbox/marco_kidney_singlecell/results/DA_tumorVsHealthy.csv"))
-DA_ASS1vsNoASS1 <- as.data.frame(read_csv("~/Dropbox/marco_kidney_singlecell/results/DA_ASS1vsNoASS1.csv"))
+DA_tumorVsHealthy <- as.data.frame(read_csv("data/RNA/single_cell_DA/DA_tumorVsHealthy.csv"))
+DA_ASS1vsNoASS1 <- as.data.frame(read_csv("data/RNA/single_cell_DA/DA_ASS1vsNoASS1.csv"))
 
 DA_tumorVsHealthy <- DA_tumorVsHealthy[which(DA_tumorVsHealthy$contrast == "Epithelium_and_Vascular"),]
 DA_ASS1vsNoASS1 <- DA_ASS1vsNoASS1[which(DA_ASS1vsNoASS1$contrast),]
@@ -84,3 +84,31 @@ stats_vec <- DA_ASS1vsNoASS1$tumor_ASS1vsTumor
 names(stats_vec) <- row.names(DA_ASS1vsNoASS1)
 fgsea_hallmarks_ASS1vsNoASS1 <- fgsea(pathways = hallmarkss_list, stats = stats_vec, nperm = 1000, nproc = 3)
 fgsea_hallmarks_ASS1vsNoASS1 <- fgsea_hallmarks_ASS1vsNoASS1[,-8]
+
+write_csv(fgsea_res_tumorVsHealthy, file = "results/RNA/single_cell/fgsea_res_tumorVsHealthy.csv")
+write_csv(fgsea_hallmarks_tumorVsHealthy, file = "results/RNA/single_cell/fgsea_hallmarks_tumorVsHealthy.csv")
+
+write_csv(fgsea_res_ASS1vsNoASS1, file = "results/RNA/single_cell/fgsea_res_ASS1vsNoASS1.csv")
+write_csv(fgsea_hallmarks_ASS1vsNoASS1, file = "results/RNA/single_cell/fgsea_hallmarks_ASS1vsNoASS1.csv")
+
+fc_matrix <- fc_table
+row.names(fc_matrix) <- fc_matrix$ID
+fc_matrix <- fc_matrix[,-1]
+fc_matrix <- fc_matrix[,c(1,2,4,3,5)]
+
+term <- "HALLMARK_APICAL_JUNCTION"
+sub_fc_matrix <- fc_matrix[row.names(fc_matrix) %in% hallmarkss[hallmarkss$term == term,"gene"],,drop = F]
+sub_fc_matrix <- sub_fc_matrix[order(sub_fc_matrix$tumor_ASS1vsTumor),,drop = F]
+
+pheatmap::pheatmap(sub_fc_matrix, cluster_cols = F, cluster_rows = F, show_colnames = T, filename = paste0("results/RNA/single_cell/",term,".pdf"), width = 4)
+
+pathway <- "PID_HIF1_TFPATHWAY"
+sub_fc_matrix <- fc_matrix[row.names(fc_matrix) %in% hallmarkss[pathways$term == pathway,"gene"],,drop = F]
+sub_fc_matrix <- sub_fc_matrix[order(sub_fc_matrix$tumor_ASS1vsTumor),,drop = F]
+
+pheatmap::pheatmap(sub_fc_matrix, cluster_cols = F, cluster_rows = F, show_colnames = T, filename = paste0("results/RNA/single_cell/",pathway,".pdf"), width = 4)
+
+#ECM1 and MUC1 over-expressed -> metastasis ?
+
+fgsea_cp_OvHK2 <- as.data.frame(read_csv("results/RNA/fgsea_cp_OvHK2.csv"))
+fgsea_cp_M1AvO <- as.data.frame(read_csv("results/RNA/fgsea_cp_M1AvO.csv"))

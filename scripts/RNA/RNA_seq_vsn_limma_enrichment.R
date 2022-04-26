@@ -11,6 +11,10 @@ library(ggplot2)
 library(reshape2)
 library(viper)
 library(GSEABase)
+library(ggfortify)
+library(cowplot)
+library(ggrepel)
+library(gridExtra)
 
 source("scripts/support_functions.R")
 
@@ -63,6 +67,19 @@ mean_count_df <- mean_count_df[,c(4,3,2,1,5)]
 
 write_csv(mean_count_df, "data/metabolomic/expressed_genes_plasmax.csv")
 
+count_df_integrated_long <- count_df_integrated
+count_df_integrated_long$gene <- row.names(count_df_integrated_long)
+count_df_integrated_long <- melt(count_df_integrated_long)
+
+
+violins <- ggplot(count_df_integrated_long, aes(x = 1:192600, y = log2(value), group = variable, fill = variable)) + 
+  geom_violin() +
+  geom_hline(yintercept = 5.64) +
+  theme_minimal()
+
+violins
+ggsave(filename = "figures/RNA_raw_violins.pdf", plot = violins)
+
 count_df_integrated <- count_df_integrated[rowMeans(count_df_integrated) > 50,]
 
 count_df_integrated[count_df_integrated == 0] <- 0.5
@@ -78,6 +95,12 @@ targets$condition <- gsub("_[0-9]$","",targets$sample)
 
 to_write <- count_df_integrated_vsn
 to_write$gene <- row.names(to_write)
+
+pca_res <- prcomp(t(count_df_integrated_vsn))
+
+plot(nicePCA(df = count_df_integrated_vsn, targets = targets))
+
+pheatmap::pheatmap(cor(count_df_integrated_vsn), cluster_cols = T, cluster_rows = T , show_rownames = F)
 
 write_csv(to_write,'data/RNA/counts_processed.csv')
 write_csv(targets,'support/targets_RNA.csv')
