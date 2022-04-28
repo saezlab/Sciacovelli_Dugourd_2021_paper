@@ -1,0 +1,150 @@
+metab,KEGG
+1-methylnicotinamide,C02918
+2-hydroxyglutarate,C02630
+2-oxoglutarate,C00026
+2/3-phosphoglycerate,C00197
+4-aminobutyrate,C00334
+4-hydroxyphenyllactate,C03672
+4-hydroxyproline,C03440
+acetyl-coa,C00024
+aconitate,C00417
+adenosine,C00212
+adp,C00008
+adp-ribose,C00301
+alanine,C00041
+allantoin,C02350
+amp,C00020
+arginine,C00062
+asparagine,C00152
+aspartate,C00049
+atp,C00002
+beta-alanine,C00099
+beta-citrylglutamic acid,C20775
+betaine,C00719
+c2-carnitine,C02571
+c3-carnitine,C03017
+c4-carnitine,C02862
+c5-carnitine,C20826
+camp,C00575
+carbamoylaspartate,C00438
+carnosine,C00386
+cdp,C00112
+choline,C00114
+citicoline,C00307
+citrate,C00158
+citrulline,C00327
+cmp,C00055
+cmp-acetylneuraminate,C00128
+creatine,C00300
+creatinine,C00791
+ctp,C00063
+cyclic adp-ribose,C13050
+cystathionine,C02291
+cytidine,C00475
+cytosine,C00380
+dctp,C00458
+deoxyadenosine,C00559
+deoxycarnitine,C01181
+deoxycytidine,C00881
+diethanolamine,C06772
+dihydroorotate,C00337
+dihydroxyacetone phosphate,C00111
+dodecyl sulfate,C11166
+dttp,C00459
+epsilon-(gamma-glutamyl)-lysine,C21730
+erythritol,C00503
+fad,C00016
+fructose bisphosphate,C05378
+fructose bisphosphate,C00665
+fructose bisphosphate,C00354
+fumarate,C00122
+gamma-glutamylcysteine,C00669
+gamma-glutamylglutamate,C03740
+gdp,C00035
+glucosamine 6-phosphate,C00352
+glucuronate,C00191
+glutamate,C00025
+glutamine,C00064
+glutathione reduced,C00051
+glyceraldehyde 3-phosphate,C00118
+glycerol 2-phosphate,C02979
+glycerol 3-phosphate,C00093
+glycerylphosphorylcholine,C00670
+glycine,C00037
+gmp,C00144
+gtp,C00044
+hexitol,C02810
+hexose phosphate,C02672
+histidine,C00135
+homoarginine,C01924
+hypoxanthine,C00262
+imp,C00130
+inosine,C00294
+inositol,C00137
+isoleucine,C00407
+ketoleucine,C00233
+ketovaline,C00141
+kynurenine,C00328
+l-cartinine,C00318
+lactate,C00186
+lactate,C00256
+leucine,C00123
+lysine,C00047
+malate,C00149
+malate,C00497
+methionine,C00073
+methionine sulfoxide,C02989
+methylthioadenosine,C00170
+n-acetylaspartate,C01042
+n-acetylaspartylglutamate,C12270
+n-acetylglutamate,C00624
+n-acetylhistidine,C02997
+n-acetylmethionine,C02712
+n-acetylneuramate,C00270
+n-carbamoylaspartate,C00438
+n-formylmethionine,C03145
+n-n-dimethylarginine,C03626
+n6-methyllysine,C05544
+n6-n6-n6-trimethyllysine,C03793
+nad,C00003
+nadh,C00004
+ophthalmate,C21016
+ornithine,C00077
+orotate,C00295
+oxidized glutathione,C00127
+pantothenate,C00864
+pentose phosphate,C00117
+phenylalanine,C00079
+phosphocreatine,C02305
+phosphoenolpyruvate,C00074
+phosphorylcholine,C00588
+proline,C00148
+pyridoxal,C00018
+pyroglutamate,C01879
+pyruvate,C00022
+s-adenosylhomocysteine,C00021
+s-adenosylmethionine,C00019
+s-allylcysteine,C16759
+s-lactoylglutathione,C03451
+sarcosine,C00213
+sedoheptulose 7-phosphate,C05382
+serine,C00065
+sphinganine,C00836
+sphingosine,C00319
+succinate,C00042
+taurine,C00245
+thiamine,C00378
+threonine,C00188
+tryptophan,C00078
+tyrosine,C00082
+udp,C00015
+udp-glcnac,C00357
+udp-glucose,C00029
+udp-glucuronate,C00167
+ump,C00105
+uracil,C00106
+uric acid,C00366
+uridine,C00299
+utp,C00075
+valine,C00183
+xanthosine monophosphate,C00655
