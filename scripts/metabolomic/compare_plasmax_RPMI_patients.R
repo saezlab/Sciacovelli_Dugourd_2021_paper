@@ -68,9 +68,8 @@ patient_samples$metabolites <- row.names(patient_samples)
 all_samples <- merge(cell_lines, patient_samples, by = "metabolites")
 
 all_samples <- all_samples[complete.cases(all_samples),]
-
-pheatmap(cor(all_samples[,-1], method = "spearman"), display_numbers = T)
-
+cols <- colorRampPalette(c("white","blue"))(100)
+pheatmap(cor(all_samples[,-1], method = "spearman"), display_numbers = F, color = cols)
 ##### CONTROL_PLASMAX ########
 
 controls_plasmax <- merge(cell_lines[,names(cell_lines) == "metabolites" | names(cell_lines) %in% targets_cell_lines[targets_cell_lines$condition == "HK2_Plasmax","sample"]],
@@ -84,7 +83,6 @@ controls_plasmax <- controls_plasmax[complete.cases(controls_plasmax),]
 cor_controls_plasmax <- as.data.frame(cor(controls_plasmax, method = "spearman"))
 
 mean(as.matrix(cor_controls_plasmax[c(7:14),c(1:6)]))
-# pheatmap(cor_controls, display_numbers = T)
 
 ######## CONTROL RPMI ##########
 
