@@ -166,6 +166,33 @@ plots <- plotMetaboliteContribution(enzyme = 'GLS_glugln',
 plot(plots$scatter)
 plot(plots$cumsumPlot)
 
+##Visualise results for single enzmes
+plots <- plotMetaboliteContribution(enzyme = 'AACS', 
+                                    stat_df = translated_results$t_table, 
+                                    metabolite_sets = translated_regulons_df, 
+                                    contrast_index = 9, stat_name = 't', scaling_factor = 1, nLabels =  20)
+
+plot(plots$scatter)
+plot(plots$cumsumPlot)
+
+##Visualise results for single enzmes
+plots <- plotMetaboliteContribution(enzyme = 'ACLY', 
+                                    stat_df = translated_results$t_table, 
+                                    metabolite_sets = translated_regulons_df, 
+                                    contrast_index = 9, stat_name = 't', scaling_factor = 1, nLabels =  20)
+
+plot(plots$scatter)
+plot(plots$cumsumPlot)
+
+
+##Visualise results for single enzmes
+plots <- plotMetaboliteContribution(enzyme = 'NAGS', 
+                                    stat_df = translated_results$t_table, 
+                                    metabolite_sets = translated_regulons_df, 
+                                    contrast_index = 9, stat_name = 't', scaling_factor = 1, nLabels =  20)
+
+plot(plots$scatter)
+plot(plots$cumsumPlot)
 ############
 
 to_hm <- t_table_names[,c(4,7,10)]
@@ -180,4 +207,4 @@ plot_reaction_network(sub_network_nocofact, t_table, mean_NES_df, column_index =
   visSave(file = "results/networks/GLSi/M1A_GLSi_full_NES_p8.html")
 
 ignet <- graph_from_data_frame(sub_network_nocofact$reaction_network)
-shortest_paths(ignet, from = "",to = "")
+shortest_paths(ignet, from = "ACLY",to = "cpd:C00049_c")

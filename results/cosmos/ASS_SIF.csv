@@ -1,0 +1,19 @@
+Node1,Sign,Node2,Weight
+CASP3,-1,CTNNB1,1
+CASP3,1,CASP6,1
+CASP6,1,HIPK2,1
+CTNNB1,1,RHOA,1
+CTNNB1,1,SNAI2,1
+Enzyme1108__orphanReacNA,1,Metab__Nitric oxide_c,1
+Enzyme3809__ASL,1,Metab__L-Arginine_c,1
+Enzyme9303__orphanReacNA,1,nwharg,1
+HIPK2,1,PAX6,1
+MAPK1,-1,MAPK8,1
+MAPK1,1,STAT2,1
+MAPK8,1,SRF,1
+Metab__Argininosuccinic acid_c,1,Enzyme3809__ASL,1
+Metab__L-Arginine_c,1,Enzyme9303__orphanReacNA,1
+Metab__Nitric oxide_c,1,CASP3,1
+nwharg,1,Enzyme1108__orphanReacNA,1
+RHOA,-1,KLF4,1
+RHOA,1,MAPK1,1
