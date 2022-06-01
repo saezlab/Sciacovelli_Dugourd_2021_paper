@@ -152,7 +152,7 @@ write_csv(ttop_G1, "results/GDC_KIRK/ttop_lateVsEarly_noASS1.csv")
 write_csv(ttop_G2, "results/GDC_KIRK/ttop_lateVsEarly_ASS1_reExp.csv")
 
 mart = useMart("ensembl", dataset = "hsapiens_gene_ensembl")
-ensembl_to_symbol <- getBM(attributes = c("ensembl_gene_id", "hgnc_symbol"), filters = "ensembl_gene_id", values = ttop$ID, mart = mart)  
+ensembl_to_symbol <- getBM(attributes = c("ensembl_gene_id", "hgnc_symbol"), filters = "ensembl_gene_id", values = ttop$ID, mart = mart)
 
 ensembl_to_symbol_vec <- ensembl_to_symbol[,2]
 names(ensembl_to_symbol_vec) <- ensembl_to_symbol[,1]
@@ -206,7 +206,7 @@ plotGseaTable(pathways = pathways_list, stats = stats_vec, fgseaRes = fgsea_res)
 fgsea_res_top$pval <- -log10(as.numeric(fgsea_res_top$pval))
 
 ggplot(fgsea_res_top, aes(x = NES, y = pathway, color = NES)) + 
-  geom_point(aes(size = abs(NES))) + 
+  geom_point(aes(size = abs(pval))) + 
   scale_color_gradient2(low="blue", high="red", midpoint = 0, mid = "white") +
   theme_minimal()
 
