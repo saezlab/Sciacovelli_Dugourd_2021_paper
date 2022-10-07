@@ -223,8 +223,8 @@ translated_regulons_df$set <- gsub("___.*","",translated_regulons_df$ID)
 translated_regulons_df$targets <- gsub(".*___","",translated_regulons_df$ID)
 translated_regulons_df <- translated_regulons_df[,c(3,4,2)]
 
-##Visualise results for single enzmes
-plots <- plotMetaboliteContribution(enzyme = 'ASNS_glugln', stat_df = translated_results$t_table, 
+##Visualise results for single enzmes (Figure 3A)
+plots <- plotMetaboliteContribution(enzyme = 'BCAT1>780', stat_df = translated_results$t_table, 
                                     metabolite_sets = translated_regulons_df, 
                                     contrast_index = 1, stat_name = 'Abundance Down <==> Up (t-value)', 
                                     scaling_factor = 1, nLabels =  30)
@@ -233,9 +233,25 @@ plot(plots$scatter)
 # plot(plots$cumsumPlot)
 
 ##Visualise results for single enzmes
-plots <- plotMetaboliteContribution(enzyme = 'GRHPR', stat_df = translated_results$t_table, 
+plots <- plotMetaboliteContribution(enzyme = 'BCAT1>780', stat_df = translated_results$t_table, 
+                                    metabolite_sets = translated_regulons_df, 
+                                    contrast_index = 4, stat_name = 'Abundance Down <==> Up (t-value)', 
+                                    scaling_factor = 1, nLabels =  30)
+
+plot(plots$scatter)
+
+##Visualise results for single enzmes
+plots <- plotMetaboliteContribution(enzyme = 'BCAT1>780_gluakg', stat_df = translated_results$t_table, 
                                     metabolite_sets = translated_regulons_df, 
                                     contrast_index = 1, stat_name = 'Abundance Down <==> Up (t-value)', 
+                                    scaling_factor = 1, nLabels =  30)
+
+plot(plots$scatter)
+
+##Visualise results for single enzmes
+plots <- plotMetaboliteContribution(enzyme = 'BCAT1>780_gluakg', stat_df = translated_results$t_table, 
+                                    metabolite_sets = translated_regulons_df, 
+                                    contrast_index = 4, stat_name = 'Abundance Down <==> Up (t-value)', 
                                     scaling_factor = 1, nLabels =  30)
 
 plot(plots$scatter)
