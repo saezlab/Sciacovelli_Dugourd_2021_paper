@@ -19,6 +19,10 @@ decoupleR (https://github.com/saezlab/decoupleR) ; ocean (https://github.com/sae
 
 Enjoy !
 
+Citing code: 
+
+[![DOI](https://zenodo.org/badge/395034170.svg)](https://zenodo.org/badge/latestdoi/395034170)
+
 
 
 
